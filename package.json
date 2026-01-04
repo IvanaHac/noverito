@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "ng build --configuration production",
-    "start": "serve -s dist/noverito -l tcp://0.0.0.0:${PORT:-8080}"
+    "start": "serve -s dist/noverito/browser -l tcp://0.0.0.0:${PORT:-8080}"
   },
   "private": true,
   "dependencies": {
