@@ -1,0 +1,91 @@
+<section id="sluzby" class="bg-[#0F172A] scroll-mt-72 md:scroll-mt-80">
+  <div class="mx-auto max-w-6xl px-6 pt-14 pb-20">
+
+    <!-- HEADING -->
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+
+      <!-- LEFT -->
+      <div class="max-w-3xl">
+        
+
+        <h2 class="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+          Naše služby
+        </h2>
+      </div>
+
+      <!-- RIGHT -->
+      <div
+        class="md:mt-8 lg:mt-10 flex items-center gap-3
+               text-[11px] font-semibold tracking-[0.30em] uppercase text-white/60">
+        <span class="h-px w-10 bg-white/20"></span>
+        <span>Návrh • Realizace • Dokončení</span>
+      </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+
+      <!-- CARD -->
+      <article
+        *ngFor="let s of services; let i = index"
+        class="relative rounded-2xl bg-white p-7 md:p-8
+               ring-1 ring-black/5
+               shadow-[0_12px_30px_rgba(17,24,39,0.06)]"
+        [ngClass]="{ '-translate-y-2': i === 1 }"
+      >
+
+        <!-- TOP ACCENT -->
+        <div
+          class="absolute inset-x-0 top-0 h-[3px] rounded-t-2xl"
+          [ngClass]="i === 1 ? 'bg-[#7C1D2D]' : 'bg-neutral-200'"
+        ></div>
+
+        <!-- ICON -->
+        <div
+          class="grid h-11 w-11 place-items-center rounded-xl
+                 bg-[#7C1D2D]/10
+                 ring-1 ring-[#7C1D2D]/30"
+          aria-hidden="true"
+        >
+          <svg
+            class="h-5 w-5 text-[#7C1D2D]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.9"
+          >
+            <path *ngIf="s.icon === 'build'"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 21h18M6 21V7l6-4 6 4v14M9 21v-6h6v6" />
+
+            <path *ngIf="s.icon === 'finish'"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 20h16M7 20V9l5-3 5 3v11M9 12h6M9 15h6" />
+
+            <path *ngIf="s.icon === 'repair'"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 20h16M8 20v-5l8-8 3 3-8 8H8zM14 6l3 3" />
+          </svg>
+        </div>
+
+        <!-- TITLE -->
+        <h3 class="mt-6 text-2xl font-extrabold tracking-tight text-neutral-900">
+          {{ s.title }}
+        </h3>
+
+        <!-- LIST -->
+        <ul class="mt-6 space-y-2 text-[16px] text-neutral-700">
+          <li *ngFor="let b of s.bullets" class="flex items-start gap-3">
+            <span class="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#7C1D2D]"></span>
+            <span>{{ b }}</span>
+          </li>
+        </ul>
+
+      </article>
+
+    </div>
+  </div>
+</section>
