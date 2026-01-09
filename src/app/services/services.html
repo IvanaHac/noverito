@@ -3,34 +3,50 @@
   class="bg-white border-y border-neutral-200
          scroll-mt-72 md:scroll-mt-80"
 >
-  <div class="mx-auto max-w-6xl px-6 pt-14 pb-20">
+  <div
+    class="mx-auto max-w-6xl
+           px-4 sm:px-6 lg:px-6
+           pt-12 sm:pt-14 lg:pt-14
+           pb-16 sm:pb-18 lg:pb-20"
+  >
 
     <!-- HEADING -->
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 
       <!-- LEFT -->
       <div class="max-w-3xl">
-        <h2 class="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-800">
+        <h2
+          class="mt-2 sm:mt-3 lg:mt-3
+                 text-[28px] sm:text-3xl md:text-5xl
+                 font-extrabold tracking-tight text-neutral-800"
+        >
           Naše služby
         </h2>
       </div>
 
       <!-- RIGHT -->
       <div
-        class="md:mt-8 lg:mt-10 flex items-center gap-3
-               text-[11px] font-semibold tracking-[0.30em] uppercase text-neutral-500"
+        class="mt-2 md:mt-8 lg:mt-10
+               flex items-center gap-2 sm:gap-3
+               text-[10px] sm:text-[11px]
+               font-semibold tracking-[0.30em] uppercase text-neutral-500"
       >
-        <span class="h-px w-10 bg-neutral-300"></span>
+        <!-- tloušťka a délka čáry – desktop zpět -->
+        <span class="h-px w-8 sm:w-10 bg-neutral-300"></span>
         <span>Návrh • Realizace • Dokončení</span>
       </div>
     </div>
 
     <!-- CARDS -->
-    <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div
+      class="mt-10 sm:mt-12 lg:mt-12
+             grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-3"
+    >
 
       <article
         *ngFor="let s of services"
-        class="rounded-2xl bg-white p-8
+        class="rounded-2xl bg-white
+               p-6 sm:p-7 lg:p-8
                ring-1 ring-black/5
                shadow-[0_10px_30px_rgba(0,0,0,0.08)]
                transition hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)]"
@@ -38,7 +54,8 @@
 
         <!-- ICON -->
         <div
-          class="grid h-11 w-11 place-items-center rounded-xl
+          class="grid h-10 w-10 sm:h-11 sm:w-11
+                 place-items-center rounded-xl
                  bg-neutral-100 ring-1 ring-black/5"
           aria-hidden="true"
         >
@@ -53,12 +70,10 @@
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M3 21h18M6 21V7l6-4 6 4v14M9 21v-6h6v6" />
-
             <path *ngIf="s.icon === 'finish'"
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M4 20h16M7 20V9l5-3 5 3v11M9 12h6M9 15h6" />
-
             <path *ngIf="s.icon === 'repair'"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -67,12 +82,21 @@
         </div>
 
         <!-- TITLE -->
-        <h3 class="mt-6 text-2xl font-extrabold tracking-tight text-neutral-900">
+        <h3
+          class="mt-5 sm:mt-6 lg:mt-6
+                 text-[20px] sm:text-2xl
+                 font-extrabold tracking-tight text-neutral-900"
+        >
           {{ s.title }}
         </h3>
 
         <!-- LIST -->
-        <ul class="mt-6 space-y-2 text-[16px] text-neutral-700">
+        <ul
+          class="mt-4 sm:mt-6 lg:mt-6
+                 space-y-2
+                 text-[15px] sm:text-[16px]
+                 text-neutral-700"
+        >
           <li *ngFor="let b of s.bullets" class="flex items-start gap-3">
             <span class="mt-[7px] h-1.5 w-1.5 rounded-full bg-neutral-400"></span>
             <span>{{ b }}</span>

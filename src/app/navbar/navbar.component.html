@@ -2,19 +2,19 @@
   class="sticky top-0 z-40 bg-white border-b border-neutral-200/50"
   (document:keydown.escape)="closeAll()"
 >
-  <div class="mx-auto max-w-screen-2xl px-6 lg:px-10">
-    <div class="flex h-20 items-center justify-between gap-6">
+  <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10">
+    <div class="flex h-16 md:h-20 items-center justify-between gap-4 md:gap-6">
 
       <!-- LEFT: logo -->
       <a href="#" class="flex items-center h-full shrink-0">
         <img
           src="assets/logo2.png"
           alt="Noverito"
-          class="block h-60 w-auto"
+          class="block h-10 sm:h-11 md:h-60 w-auto"
         />
       </a>
 
-      <!-- DESKTOP LINKS -->
+      <!-- DESKTOP LINKS (BEZE ZMĚNY) -->
       <div class="hidden md:flex items-center gap-20">
 
         <!-- ACTIVE -->
@@ -67,8 +67,6 @@
                  shadow-[0_6px_18px_rgba(0,0,0,0.08)]"
         >
           <span>Nezávazná poptávka</span>
-
-          <!-- bordó tečka ZŮSTÁVÁ -->
           <span class="h-1.5 w-1.5 rounded-full bg-[#7C1D2D] opacity-70"></span>
         </a>
 
@@ -108,26 +106,26 @@
 
   <!-- MOBILE MENU -->
   <div id="mobile-menu" class="md:hidden" *ngIf="mobileOpen">
-    <div class="mx-auto max-w-screen-2xl px-6 lg:px-10 pb-5">
+    <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pb-5">
       <div class="mt-2 rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden">
 
         <a href="#o-nas"
            (click)="scrollToSection($event, 'o-nas')"
-           class="flex items-center justify-between px-4 py-3
+           class="flex min-h-[48px] items-center justify-between px-4 py-3
                   text-[13px] font-semibold text-neutral-900 hover:bg-neutral-50">
           O nás <span class="text-neutral-300">›</span>
         </a>
 
         <a href="#sluzby"
            (click)="scrollToSection($event, 'sluzby')"
-           class="flex items-center justify-between px-4 py-3
+           class="flex min-h-[48px] items-center justify-between px-4 py-3
                   text-[13px] font-semibold text-neutral-900 hover:bg-neutral-50">
           Služby <span class="text-neutral-300">›</span>
         </a>
 
         <a href="#kontakt"
            (click)="scrollToSection($event, 'kontakt')"
-           class="flex items-center justify-between px-4 py-3
+           class="flex min-h-[48px] items-center justify-between px-4 py-3
                   text-[13px] font-semibold text-neutral-900 hover:bg-neutral-50">
           Kontakt <span class="text-neutral-300">›</span>
         </a>
@@ -138,6 +136,7 @@
             (click)="scrollToSection($event, 'kontakt')"
             class="flex w-full items-center justify-center
                    rounded-full px-4 py-3
+                   min-h-[48px]
                    text-[13px] font-semibold
                    bg-[#0F172A] text-white
                    shadow-sm shadow-black/10 ring-1 ring-black/5"
