@@ -5,13 +5,15 @@ import { FooterComponent } from "./footer/footer.component";
 import { AboutUsComponent } from "./about-us/about-us";
 import {ServicesComponent} from "./services/services";
 import {ContactComponent} from "./contact/contact";
+import {InquiryFormComponent} from "./inquiry-form/inquiry-form";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [HeaderComponent, HomeHeroComponent, FooterComponent, AboutUsComponent, ServicesComponent, ContactComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'noverito';

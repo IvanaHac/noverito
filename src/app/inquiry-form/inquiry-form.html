@@ -1,0 +1,176 @@
+
+<!-- inquiry-form.component.html -->
+<section class="relative w-full overflow-hidden text-white">
+
+  <!-- BACKGROUND IMAGE (handshake) -->
+  <img
+    src="assets/inquiry.png"
+    alt="Uzavření spolupráce – podání ruky"
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="lazy"
+  />
+  <!-- DARK OVERLAY (hero-like) -->
+  <div class="absolute inset-0 bg-gradient-to-br
+              from-[#0B1224]/90
+              via-[#0B1224]/72
+              to-[#0B1224]/45">
+  </div>
+
+ 
+
+  <!-- subtle focus vignette (premium) -->
+  <div class="pointer-events-none absolute inset-0
+              [background:radial-gradient(80%_60%_at_25%_30%,rgba(255,255,255,0.12),transparent_58%)]">
+  </div>
+
+  <!-- soft ornaments -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-28 h-80 w-80 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="absolute -bottom-28 -right-28 h-80 w-80 rounded-full bg-white/8 blur-3xl"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative mx-auto max-w-5xl px-6 sm:px-8 lg:px-10 py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start lg:items-stretch">
+
+      <!-- LEFT -->
+      <div class="lg:col-span-6 flex flex-col justify-center">
+              <h2 class="mt-1 font-extrabold tracking-tight text-white
+                   text-[40px] sm:text-[50px] lg:text-[56px]
+                   leading-[1.02] max-w-[14ch]">
+          Máte zájem<br>
+          o nezávaznou nabídku?
+        </h2>
+
+        <p class="mt-4 text-[15px] sm:text-[16px] leading-7 text-white/75 max-w-xl">
+          Vyplňte krátký formulář a my se vám ozveme s návrhem řešení.
+        </p>
+
+        <div class="mt-7 h-px w-28 bg-white/25"></div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="lg:col-span-6 flex justify-end">
+        <div class="w-full max-w-[440px]">
+
+          <!-- FORM CARD -->
+          <div class="rounded-2xl bg-white/95 backdrop-blur
+                      px-6 py-6 sm:px-7 sm:py-7
+                      shadow-[0_28px_90px_-60px_rgba(0,0,0,0.60)]
+                      ring-1 ring-white/20
+                      text-[#111827]">
+
+            <form
+              [formGroup]="form"
+              (ngSubmit)="onSubmit()"
+              class="flex flex-col"
+            >
+
+              <!-- GRID (table-like) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-5">
+
+                <!-- NAME -->
+                <div>
+                  <label class="block text-[12.5px] font-semibold text-[#111827]">
+                    Jméno <span class="text-[#3B82F6]">*</span>
+                  </label>
+                  <input
+                    formControlName="name"
+                    type="text"
+                    autocomplete="name"
+                    class="mt-1.5 w-full bg-transparent px-0 pb-1 text-[15px]
+                           border-b border-[#0B1224]/15 outline-none
+                           focus:border-[#3B82F6]"
+                  />
+                </div>
+
+                <!-- PHONE -->
+                <div>
+                  <label class="block text-[12.5px] font-semibold text-[#111827]">
+                    Telefon
+                  </label>
+                  <input
+                    formControlName="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    class="mt-1.5 w-full bg-transparent px-0 pb-1 text-[15px]
+                           border-b border-[#0B1224]/15 outline-none
+                           focus:border-[#3B82F6]"
+                  />
+                </div>
+
+                <!-- EMAIL -->
+                <div>
+                  <label class="block text-[12.5px] font-semibold text-[#111827]">
+                    E-mail <span class="text-[#3B82F6]">*</span>
+                  </label>
+                  <input
+                    formControlName="email"
+                    type="email"
+                    autocomplete="email"
+                    class="mt-1.5 w-full bg-transparent px-0 pb-1 text-[15px]
+                           border-b border-[#0B1224]/15 outline-none
+                           focus:border-[#3B82F6]"
+                  />
+                </div>
+
+                <!-- LOCATION -->
+                <div>
+                  <label class="block text-[12.5px] font-semibold text-[#111827]">
+                    Lokalita
+                  </label>
+                  <input
+                    formControlName="location"
+                    type="text"
+                    autocomplete="address-level2"
+                    class="mt-1.5 w-full bg-transparent px-0 pb-1 text-[15px]
+                           border-b border-[#0B1224]/15 outline-none
+                           focus:border-[#3B82F6]"
+                  />
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="sm:col-span-2">
+                  <label class="block text-[12.5px] font-semibold text-[#111827]">
+                    Popis zakázky
+                  </label>
+                  <textarea
+                    formControlName="description"
+                    rows="2"
+                    class="mt-1.5 w-full resize-none bg-transparent px-0 pb-1 text-[15px]
+                           border-b border-[#0B1224]/15 outline-none
+                           focus:border-[#3B82F6]"
+                  ></textarea>
+
+                  <div class="mt-2 flex justify-end text-[12px] text-[#0B1224]/55">
+                    {{ (f.description.value.length || 0) }}/1200
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- SUBMIT -->
+              <button
+                type="submit"
+                [disabled]="isSubmitting"
+                class="mt-6 w-full rounded-xl py-3 text-[14px] font-semibold text-white
+                       bg-[#0B1224] hover:bg-[#111827]
+                       shadow-[0_10px_30px_-18px_rgba(11,18,36,0.55)]
+                       disabled:opacity-60 transition"
+              >
+                Odeslat poptávku
+              </button>
+
+              <p *ngIf="successMessage" class="mt-4 text-sm font-semibold text-[#111827]">
+                {{ successMessage }}
+              </p>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
