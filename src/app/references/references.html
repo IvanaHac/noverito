@@ -1,0 +1,108 @@
+<section
+  id="realizace"
+  class="bg-white border-b border-neutral-200 scroll-mt-72 md:scroll-mt-80"
+>
+  <!-- TEXT -->
+  <div class="mx-auto max-w-6xl px-6 pt-16 sm:pt-20 pb-6 sm:pb-8">
+    <div class="mb-8 sm:mb-10">
+      <h2 class="text-4xl font-extrabold tracking-tight text-neutral-950 md:text-5xl">
+        Ukázky realizací
+      </h2>
+
+      <div class="mt-5 flex items-center gap-3">
+        <span class="h-[2px] w-10 rounded-full bg-[#7C1D2D]"></span>
+        <span class="h-px w-24 bg-neutral-200"></span>
+      </div>
+    </div>
+
+    <h3 class="text-lg md:text-xl font-extrabold tracking-tight text-neutral-900">
+      {{ references[0].subtitle }}
+    </h3>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
+    <div class="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3 md:gap-8">
+      <button
+        *ngFor="let img of (references[0].images | slice:0:3); let i = index"
+        type="button"
+        class="block text-left"
+        (click)="openLightbox(references[0].images, i)"
+        aria-label="Otevřít fotografii"
+      >
+        <figure class="overflow-hidden rounded-2xl bg-neutral-100">
+          <img
+            [src]="img"
+            alt=""
+            class="w-full object-cover cursor-pointer
+                   h-[260px] sm:h-[320px] md:h-[340px] lg:h-[440px]
+                   transition duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
+        </figure>
+      </button>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div
+    *ngIf="isLightboxOpen"
+    class="fixed inset-0 z-[999] flex items-center justify-center"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- BACKDROP -->
+    <div
+      class="absolute inset-0 bg-black/75"
+      (click)="closeLightbox()"
+    ></div>
+
+    <!-- CLOSE (FIXED IN VIEWPORT => vždy klikatelné) -->
+    <button
+      type="button"
+      class="lb-close"
+      (click)="closeLightbox(); $event.stopPropagation()"
+      aria-label="Zavřít"
+    >
+      ✕
+    </button>
+
+    <!-- CONTENT -->
+    <div
+      class="relative z-[1000] w-[min(1280px,94vw)] px-3 sm:px-6"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="relative flex items-center justify-center">
+        <img
+          [src]="activeImages[activeIndex]"
+          alt=""
+          class="lb-image"
+        />
+
+        <!-- PREV / NEXT -->
+        <button
+          type="button"
+          class="lb-nav left-2 sm:left-4"
+          (click)="prev(); $event.stopPropagation()"
+          aria-label="Předchozí"
+        >
+          ‹
+        </button>
+
+        <button
+          type="button"
+          class="lb-nav right-2 sm:right-4"
+          (click)="next(); $event.stopPropagation()"
+          aria-label="Další"
+        >
+          ›
+        </button>
+
+        <!-- COUNTER -->
+        <div class="lb-counter">
+          {{ activeIndex + 1 }} / {{ activeImages.length }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
