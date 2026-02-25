@@ -1,10 +1,8 @@
-/* lock scroll while lightbox is open */
 :global(html.lb-lock),
 :global(body.lb-lock) {
   overflow: hidden !important;
 }
 
-/* BIG IMAGE */
 .lb-image {
   max-height: 84vh;
   max-width: 94vw;
@@ -15,13 +13,11 @@
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
 }
 
-/* CLOSE BUTTON - FIXED, ALWAYS CLICKABLE */
 .lb-close {
   position: fixed;
   top: 18px;
   right: 18px;
   z-index: 1100;
-
   height: 44px;
   width: 44px;
   border-radius: 9999px;
@@ -29,11 +25,9 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   font-size: 18px;
-  line-height: 1;
   cursor: pointer;
 }
 
-/* NAV ARROWS */
 .lb-nav {
   position: absolute;
   top: 50%;
@@ -41,15 +35,11 @@
   height: 52px;
   width: 52px;
   border-radius: 9999px;
-
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
   color: white;
   font-size: 34px;
-  line-height: 1;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -59,34 +49,32 @@
   background: rgba(255, 255, 255, 0.20);
 }
 
-/* COUNTER */
 .lb-counter {
   position: fixed;
   bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1100;
-
   color: rgba(255, 255, 255, 0.78);
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  user-select: none;
 }
 
-/* RESPONSIVE TWEAKS */
 @media (max-width: 640px) {
   .lb-nav {
     height: 44px;
     width: 44px;
     font-size: 30px;
   }
+
   .lb-close {
     top: 12px;
     right: 12px;
     height: 42px;
     width: 42px;
   }
+
   .lb-image {
     border-radius: 16px;
     max-height: 80vh;

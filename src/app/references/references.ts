@@ -14,16 +14,33 @@ interface ReferenceItem {
   styleUrls: ['./references.css'],
 })
 export class ReferencesComponent {
+
   references: ReferenceItem[] = [
     {
       subtitle: 'Revitalizace chodby pro Český svaz cyklistiky',
       images: [
-        'assets/references1.jpg',
-        'assets/references2.jpg',
-        'assets/references3.jpg',
-        'assets/references4.jpg',
+        'assets/revitalizace_chodby.webp',
+        'assets/revitalizace_chodby_1.webp',
+        'assets/revitalizace_chodby_2.webp',
       ],
     },
+    {
+      subtitle: 'Montáž minerálních podhledů – Praha',
+      images: [
+        'assets/mineralni_podhled.webp',
+        'assets/mineralni_podhled_1.webp',
+        'assets/mineralni_podhled_2.webp',
+      ],
+    },
+    {
+      subtitle: 'Realizace sádrokartonů v dřevostavbě',
+      images: [
+        'assets/drevostavba_3.webp',
+        'assets/drevostavba_4.webp',
+        'assets/drevostavba_2.webp',
+        'assets/drevostavba.webp',
+      ],
+    }
   ];
 
   isLightboxOpen = false;
@@ -47,14 +64,14 @@ export class ReferencesComponent {
   }
 
   next() {
-    if (!this.activeImages.length) return;
-    this.activeIndex = (this.activeIndex + 1) % this.activeImages.length;
+    this.activeIndex =
+      (this.activeIndex + 1) % this.activeImages.length;
   }
 
   prev() {
-    if (!this.activeImages.length) return;
     this.activeIndex =
-      (this.activeIndex - 1 + this.activeImages.length) % this.activeImages.length;
+      (this.activeIndex - 1 + this.activeImages.length) %
+      this.activeImages.length;
   }
 
   @HostListener('document:keydown', ['$event'])
